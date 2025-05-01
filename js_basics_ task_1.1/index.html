@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="JS Basics">
+    <meta property="og:description" content="Learn the basics of JavaScript with this project.">
+    <title>js basics</title>
+    <link rel="icon" type="image/x-icon" href="js.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="box">
+        <!-- 1 -->
+        <section id="blackSquare" class="block-position">
+
+            <div class="element-position ">
+                <h6>1.1 CSS <br>(display: none)</h6>
+                <div id="blackSquare1" class="black-square"></div>
+                <button onclick="document.getElementById('blackSquare1').style.display='none'">
+                    click me!
+                </button>
+            </div>
+            <div class="element-position ">
+                <h6>1.2 JS <br>(remove element)</h6>
+                <div id="blackSquareJs" class="black-square"></div>
+                <button id="removeButton">click me!</button>
+            </div>
+
+            <div class="element-position ">
+                <h6>1.3 CSS+JS <br>(add .hidden)</h6>
+                <div id="blackSquareJsCss" class="black-square"></div>
+                <button id="removeButton2">click me!</button>
+            </div>
+        </section>
+        <!-- 2 -->
+        <section>
+            <h6> 2. Hide or show block</h6>
+            <div id="blackSquareBlock" class="black-square"></div>
+            <button id="hideShowBlock">guess what?</button>
+        </section>
+        <!-- 3 -->
+        <section>
+            <h6> 3. Five black blocks </h6>
+            <div id="squaresContainer" class="block-position">
+                <div class="black-square"></div>
+                <div class="black-square"></div>
+                <div class="black-square"></div>
+                <div class="black-square"></div>
+                <div class="black-square"></div>
+            </div>
+            <button id="hideSquares">hide</button>
+        </section>
+        <!-- 4 -->
+        <section class="element-position ">
+            <h6>4. Input</h6>
+            <input type="text" id="cssSelector">
+            <button id="visiability">visibility</button>
+            <div id="inputSelector" class="block-position">
+                <div class="black-square"></div>
+                <div class="black-square"></div>
+                <div class="black-square"></div>
+            </div>
+        </section>
+        <!-- 5 -->
+        <section>
+            <h6>5.Yellow square</h6>
+            <div id="yellowSquare" class="block-position">
+                <div class="yellow-square"></div>
+            </div>
+        </section>
+        <!-- 6 -->
+        <section class="element-position ">
+            <h6> 6.Red square</h6>
+            <div id="redSquare" style="width: 50px; height: 50px; background-color: red; display: none; position: absolute; "></div>
+            <button id="hoverButton">Hover over</button>
+        </section>
+        <!-- 7 -->
+        <section class="element-position">
+            <h6> 7.Green regtangle </h6>
+            <div id="greenRec" style="width: 50px; height: 20px; background-color: green; display: none;"></div>
+            <input type="text" id="inputField">
+        </section>
+        <!-- 8 -->
+        <section class="element-position">
+            <h6>8. Input image URL</h6>
+            <input type="text" id="imageUrl">
+            <button id="loadImageButton">Load image</button>
+            <div id="imageContainer"></div>
+        </section>
+        <!-- 9 -->
+        <section class="element-position">
+            <h6>9. Textarea</h6>
+            <textarea id="imageUrlsT" rows="5" placeholder="Enter image URL"></textarea>
+            <button id="loadImagesButtonT">Load Images</button>
+            <div id="imageContainerT"></div>
+        </section>
+        <!-- 10 -->
+        <section>
+            <h6> 10.Coordinates =></h6>
+            <div class="block" id="coordinates-block">X: 0, Y: 0</div>
+        </section>
+        <!-- 11 -->
+        <section>
+            <h6> 11.Language =></h6>
+            <div class="block" id="language-block">
+                Language:
+            </div>
+        </section>
+        <!-- 12 -->
+        <section>
+            <h6> 12 Location =></h6>
+            <div class="block" id="location-block">Ш: -, Д: -</div>
+        </section>
+        <!-- 13 -->
+        <section>
+            <h6> 13. Local Storage, Cookies, Session Storage</h6>
+            <div id="local-editable" contenteditable="true"></div>
+            <div id="cookies-editable" contenteditable="true"></div>
+            <div id="session-editable" contenteditable="true"></div>
+        </section>
+        <!-- 14 -->
+        <section>
+            <h6> 14. Scroll up =></h6>
+            <button class="block" id="scrollButton">↑ Top</button>
+        </section>
+        <!--  15  -->
+        <section>
+            <h6> 15. Two blocks</h6>
+
+            <div id="blockOut">
+                <div id="blockIn"></div>
+            </div>
+        </section>
+        <!-- 16 -->
+        <section>
+            <h6> Blure gray Sq</h6>
+            <button id="showBlure">Show gray sq</button>
+            <div class="blure_gray_sq" id="blure"></div>
+        </section>
+        <!-- 17 -->
+        <section>
+            <h6> Go</h6>
+            <form id="myForm">
+                <input type="submit" value="GO">
+            </form>
+        </section>
+         <!-- 18 -->
+        <section>
+            <h6> 18</h6>
+            <div class="file-upload" id="fileUpload">
+                <div class="icon">🧷</div>
+                <div class="message">Drag and drop or select a file</div>
+                <input type="file" id="fileInput">
+                <div class="file-name" id="fileName"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
