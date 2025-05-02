@@ -1,2 +1,0 @@
-# JS-basic-
-js basic
