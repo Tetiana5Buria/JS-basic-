@@ -175,7 +175,7 @@ button:hover {
 
 /* File Upload */
 .file-upload {
-  position: relative;
+
   border: 5px outset var(--purple-border);
   border-radius: 10px;
   text-align: center;
