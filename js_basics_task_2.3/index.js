@@ -1,4 +1,3 @@
-
 const csvData = `
 50.18,28.49,Житомир,284236,,,,,
 49.04,28.12,Жмеринка,37349,
@@ -48,61 +47,77 @@ const csvData = `
 49.05,33.24,,,Світловодськ,45000
 48.72,32.67,Знам'янка,20000
 48.33,29.87,Гайворон,15000
-48.32,31.53,Новоукраїнка,16000`
+48.32,31.53,Новоукраїнка,16000`;
 
 const replacerFunction = createCityReplacer(csvData);
-alert("I love Ukraine!")
-console.log(replacerFunction(
+alert("I love Ukraine!");
+console.log(
+  replacerFunction(
     `Дніпро - про модерновість та міць.
     Донецьк - це Україна.
     Кривий Ріг - сталеві м'язи.
-    Львів - культурна столиця нашої країни`));
+    Львів - культурна столиця нашої країни`
+  )
+);
 
 function createCityReplacer(csvData) {
-    const cityData = csvData
-        .split("\n")
-        .filter(row => row.trim() && !row.startsWith("#"))
-        .map(row => row.split(",").map(part => part.trim()))
-        .filter(parts => parts.length >= 4 && parts[2] && !isNaN(parts[3]))
-        .map(parts => ({
-            x: parts[0],
-            y: parts[1],
-            name: parts[2],
-            population: +parts[3]
-        }))
-        .sort((less, more) => more.population - less.population)
-        .slice(0, 10)
-       .reduce((accumulator, city, index) => {
-            accumulator[city.name] = {
-                population: city.population,
-                rating: index+1};
-            return accumulator;
-        }, {});
-       /*  console.log("Рейтинг міст:");
-        Object.keys(cityData).forEach(city => {
-            console.log(`${city}: Рейтинг - ${cityData[city].rating}, Населення - ${cityData[city].population}`);
-        }); */
+  const cityData = csvData
+    .split("\n")
+    .filter((row) => row.trim() && !row.startsWith("#"))
+    .map((row) => row.split(",").map((part) => part.trim()))
+    .filter((parts) => parts.length >= 4 && parts[2] && !isNaN(parts[3]))
+    .map((parts) => ({
+      x: parts[0],
+      y: parts[1],
+      name: parts[2],
+      population: +parts[3],
+    }))
+    .sort((less, more) => more.population - less.population)
+    .slice(0, 10)
+    .reduce((accumulator, city, index) => {
+      accumulator[city.name] = {
+        population: city.population,
+        rating: index + 1,
+      };
+      return accumulator;
+    }, {});
+  console.log("Рейтинг міст:");
+  Object.keys(cityData).forEach((city) => {
+    console.log(
+      `${city}: Рейтинг - ${cityData[city].rating}, Населення - ${cityData[city].population}`
+    );
+  });
 
-    return information => { // lambda function
-        const regularExpression = new RegExp(
-            `(^|\\s)(${Object.keys(cityData).join("|")})(\\s|[.,;?!]|$)`,
-            "g"//global search
-        );
+  return (information) => {
+    // lambda function
+    const regularExpression = new RegExp(
+      `(^|\\s)(${Object.keys(cityData).join("|")})(\\s|[.,;?!]|$)`,
+      "g" //global search
+    );
 
-        return information.replace(regularExpression, (match, before, city, after) => {
-            const { population, rating } = cityData[city];
-            return `${before}${city} (${rating} місце в ТОП-10 найбільших міст України, населення: ${population} ${correctEnding(population)})${after}`;
-
-        });
-
-    };
+    return information.replace(
+      regularExpression,
+      (match, before, city, after) => {
+        const { population, rating } = cityData[city];
+        return `${before}${city} (${rating} місце в ТОП-10 найбільших міст України, населення: ${population} ${correctEnding(
+          population
+        )})${after}`;
+      }
+    );
+  };
 }
 
 function correctEnding(population) {
-        return (population % 10 === 1 && population % 100 !== 11)
-            ? "людина"
-            : ([2, 3, 4].includes(population % 10) && ![12, 13, 14].includes(population % 100))
-                ? "людини"
-                : "людей";
-    }
-
+  let correctEnding;
+  if (population % 10 === 1 && population % 100 !== 11) {
+    correctEnding = "людна";
+  } else if (
+    [2, 3, 4].includes(population % 10) &&
+    ![12, 13, 14].includes(population % 100)
+  ) {
+    correctEnding = "людини";
+  } else {
+    correctEnding = "людей";
+  }
+  return correctEnding;
+}
